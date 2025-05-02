@@ -1,0 +1,56 @@
+Asignatura:
+- Propiedades:
+	Básicas:
+		String nombre
+		String código
+		Double créditos
+		Enum -> TipoAsignatura tipo
+		String curso
+	
+	Derivadas:
+		acrónimo
+		
+- Se trata de un RECORD porque "Ninguna de las propiedades que definen a una asignatura varía, una vez creada la misma."
+		
+Personas:
+- Propiedades:
+	Básicas:
+		String DNI
+		String nombre
+		String apellidos
+		LocalDate fechaN
+		String email
+	
+	Derivadas:
+		Integer edad (derivada de fechaN)
+
+- Se trata de una CLASE porque "Todas las propiedades de la persona pueden variar una vez creada."
+
+Espacio:
+- Propiedades:
+	Básicas:
+		Enum -> TipoEspacio tipo
+		String nombre
+		Integer capacidad
+	
+	Derivadas:
+		Integer planta (derivada de nombre)
+		
+- Se trata de una CLASE porque "Todas las propiedades de la persona pueden variar una vez creada."
+
+Nota:
+- Propiedades:
+	Básicas: 
+		String asignatura
+		Integer curso_academico (en toString añadir "/")
+		Enum -> Convocatoria convocatoria
+		Integer valor
+		Boolean matricula
+	
+	Derivadas:
+		Enum calificacion
+		
+- Se trata de un RECORD porque "Ninguna de las propiedades que definen a una asignatura varía, una vez creada la misma."
+
+				
+mencion_honor es RESTRICCION (bool)

@@ -1,0 +1,19 @@
+si tenemos dos vuelos con sus tripulantes:
+[Vuelo1, [T1,T2,T3]]
+[Vuelo2, [T4,T5,T6]]
+
+y quiero obtener lo siguiente:
+[T1,T2,T3,T4,T5,T6]
+
+si yo hago:
+vuelos.stream()
+.map(x -> x.getTripulantes() ) 
+
+obtendremos: [[T1,T2,T3], [T4,T5,T6]]
+
+
+para ello entra el flatMap:
+vuelos.stream()
+.flatMap(x -> x.getTripulantes() ) 
+
+obtendremos pues: [T1,T2,T3,T4,T5,T6]
