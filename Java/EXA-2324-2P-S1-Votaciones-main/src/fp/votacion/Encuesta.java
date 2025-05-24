@@ -11,7 +11,7 @@ public class Encuesta {
 	private String pais;
 	private TipoEncuesta tipo;
 	private Double porcentaje_indecisos;
-	private List<String> resultados;
+	private List<Resultado> resultados;
 	
 	public Encuesta(String l) {
 		String [] trozos = l.split(",");
@@ -25,7 +25,7 @@ public class Encuesta {
 	}
 	
 	public Encuesta(String nombre, LocalDate fecha_comienzo, LocalDate fecha_fin, Integer num_encuestados, String pais, 
-			TipoEncuesta tipo, Double porcentaje_indecisos, List<String> resultados) {
+			TipoEncuesta tipo, Double porcentaje_indecisos, List<Resultado> resultados) {
 		checkFechas(fecha_comienzo,fecha_fin);
 		checkLista(resultados);
 		checkNumEncuestados(num_encuestados);
@@ -49,7 +49,7 @@ public class Encuesta {
 		
 	}
 
-	private void checkLista(List<String> resultados) {
+	private void checkLista(List<Resultado> resultados) {
 		if(resultados.isEmpty()) {
 			throw new IllegalArgumentException("La lista debe contener elementos");
 		}
@@ -98,7 +98,7 @@ public class Encuesta {
 		this.porcentaje_indecisos=porcentaje;
 	}
 
-	public List<String> getResultados() {
+	public List<Resultado> getResultados() {
 		return resultados;
 	}
 
