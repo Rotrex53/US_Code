@@ -20,7 +20,7 @@ public class TestFactoriaUniversidad {
 		
 		List<Despacho> d1 = FactoriaUniversidad.leeDespachos("src/data/despachos.csv");
 		
-		System.out.println(d1);
+		System.out.println(espacio1);
 
 	}
 

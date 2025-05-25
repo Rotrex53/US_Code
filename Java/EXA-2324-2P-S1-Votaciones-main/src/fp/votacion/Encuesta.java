@@ -2,6 +2,7 @@ package fp.votacion;
 
 import java.time.*;
 import java.util.*;
+import fp.utiles.Checkers;
 
 public class Encuesta {
 	private String nombre;
@@ -21,9 +22,35 @@ public class Encuesta {
 		String pais = trozos[3].strip();
 		TipoEncuesta tipo = TipoEncuesta.valueOf(trozos[4].strip());
 		Double porcentaje_indecisos = Double.valueOf(trozos[5].strip());
-		List<String> resultados = List.
+		List<Resultado> resultados = parseaResultados(trozos[7].strip());
+		
+		this.nombre = nombre;
+		this.fecha_comienzo = fecha_comienzo;
+		this.fecha_fin = fecha_fin;
+		this.pais = pais;
+		this.tipo = tipo;
+		this.porcentaje_indecisos = porcentaje_indecisos;
+		this.resultados = resultados;
 	}
 	
+	private List<Resultado> parseaResultados(String cad) {
+		String clear = cad.replace("'",	"").replace("(", "").replace(")", "");
+		String [] trozos = clear.split(";");
+		List<Resultado> res = new ArrayList<>();
+		for(String trozo: trozos) {
+			res.add(parseaResultado(trozo.strip()));
+		}
+		return res;
+	}
+
+	private Resultado parseaResultado(String trozo) {
+		String [] trozos = trozo.split(":");
+		Checkers.check("Formato resultado no válido", trozos.length == 2);
+		String partido = trozos[0].strip();
+		Double porcentaje = Double.valueOf(trozos[1].strip());
+		return new Resultado(partido, porcentaje);
+	}
+
 	public Encuesta(String nombre, LocalDate fecha_comienzo, LocalDate fecha_fin, Integer num_encuestados, String pais, 
 			TipoEncuesta tipo, Double porcentaje_indecisos, List<Resultado> resultados) {
 		checkFechas(fecha_comienzo,fecha_fin);
