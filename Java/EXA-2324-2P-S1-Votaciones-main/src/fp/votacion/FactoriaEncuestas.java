@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class FactoriaEncuestas {
-	public Encuesta parsearEncuesta(String lineaCSV) {
+	public static Encuesta parsearEncuesta(String lineaCSV) {
 		return new Encuesta(lineaCSV);
 	}
 
@@ -14,8 +14,9 @@ public class FactoriaEncuestas {
 		List<Encuesta> res = new ArrayList<Encuesta>();
 		try {
 			List<String> lineas = Files.readAllLines(Paths.get(ruta));
-			for(String linea: lineas) {
-				res.add(new Encuesta(linea));
+			for(int i=1; i<lineas.size(); i++) {
+				String linea = lineas.get(i);
+				res.add(parsearEncuesta(linea));
 			}
 		}catch(IOException e) {
 			e.printStackTrace();

@@ -19,14 +19,16 @@ public class Encuesta {
 		String nombre = trozos[0].strip();
 		LocalDate fecha_comienzo = LocalDate.parse(trozos[1].strip());
 		LocalDate fecha_fin = LocalDate.parse(trozos[2].strip());
-		String pais = trozos[3].strip();
-		TipoEncuesta tipo = TipoEncuesta.valueOf(trozos[4].strip());
-		Double porcentaje_indecisos = Double.valueOf(trozos[5].strip());
+		Integer num_encuestados = Integer.parseInt(trozos[3].strip());
+		String pais = trozos[4].strip();
+		TipoEncuesta tipo = TipoEncuesta.valueOf(trozos[5].strip());
+		Double porcentaje_indecisos = Double.valueOf(trozos[6].strip());
 		List<Resultado> resultados = parseaResultados(trozos[7].strip());
 		
 		this.nombre = nombre;
 		this.fecha_comienzo = fecha_comienzo;
 		this.fecha_fin = fecha_fin;
+		this.num_encuestados = num_encuestados;
 		this.pais = pais;
 		this.tipo = tipo;
 		this.porcentaje_indecisos = porcentaje_indecisos;
