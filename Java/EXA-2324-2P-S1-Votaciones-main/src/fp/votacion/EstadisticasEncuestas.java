@@ -95,7 +95,6 @@ public class EstadisticasEncuestas {
 	
 	public Map<String, SortedSet<String>> getPaisesPorPartidoMayorPorcentaje(Double umbralPorcentaje){
 		Map<String, SortedSet<String>> res = new TreeMap<>();
-		SortedSet<String> conjPaises = new TreeSet<>();
 		for(int i=0; i<getEncuestas().size(); i++) {
 			List<Resultado> resultados = getEncuestas().get(i).getResultados();
 			for(int r=0; r<resultados.size();r++) {

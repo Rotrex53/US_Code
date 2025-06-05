@@ -1,7 +1,6 @@
 from typing import NamedTuple
 from datetime import date
 import csv
-import matplotlib.pyplot as plt
 
 '''reciclar para el 4 el 2, para el 5 y 6 el 3'''
 
@@ -210,14 +209,14 @@ def calcular_frecuencia_por_año(lista_fichero:list[FrecuenciaNombre], nombre:st
     return lista_frecuencia_por_año
 
 
-def mostrar_evolucion_por_año(lista_fichero:list[FrecuenciaNombre], nombre:str)->plt:
+def mostrar_evolucion_por_año(lista_fichero:list[FrecuenciaNombre], nombre:str):
     frecuencias_por_año = calcular_frecuencia_por_año(lista_fichero, nombre)
     años = [año for año, _ in frecuencias_por_año]
     frecuencias = [frecuencia for _, frecuencia in frecuencias_por_año]
 
-    plt.plot(años, frecuencias)
-    plt.title("Evolución del nombre '{}'".format(nombre))
-    plt.show()
+    #plt.plot(años, frecuencias)
+    #plt.title("Evolución del nombre '{}'".format(nombre))
+    #plt.show()
 
 
 def calcular_frecuencias_por_nombre(lista_fichero:list[FrecuenciaNombre])->dict[str,int]:
@@ -232,13 +231,13 @@ def calcular_frecuencias_por_nombre(lista_fichero:list[FrecuenciaNombre])->dict[
     return diccionario
 
 
-def mostrar_frecuencias_nombres(lista_fichero:list[FrecuenciaNombre], limite:int)->plt:
+def mostrar_frecuencias_nombres(lista_fichero:list[FrecuenciaNombre], limite:int):
     frecuencias_por_nombre = calcular_frecuencias_por_nombre(lista_fichero)
     nombres_limitados = sorted(frecuencias_por_nombre.items(), key=lambda x:x[1], reverse=True)[:limite]
     nombres = [nombres for nombres,_ in nombres_limitados]
     frecuencias = [frecuencias for _,frecuencias in nombres_limitados]
 
-    plt.bar(nombres, frecuencias)
-    plt.xticks(rotation=80)
-    plt.title("Frecuencia de los {} nombres más comunes".format(limite))
-    plt.show()  
+    #plt.bar(nombres, frecuencias)
+    #plt.xticks(rotation=80)
+    #plt.title("Frecuencia de los {} nombres más comunes".format(limite))
+    #plt.show()  
