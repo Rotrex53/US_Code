@@ -30,7 +30,7 @@ def test_mes_con_precio_medio_mas_alto():
     print(res)
 
 if __name__ == "__main__":
-    lista_r = leer_recetas("C:/Users/rodri/Desktop/US_Code/Python/PrimeraConvo/enero24/Recetas/data/recetas.csv")
+    lista_r = leer_recetas("C:/Users/rodri/Desktop/US_Code/Python/PrimeraConvo/23_24/Recetas/data/recetas.csv")
     #test_leer_recetas()
     #test_receta_mas_barata()
     #test_obten_ingredientes()
